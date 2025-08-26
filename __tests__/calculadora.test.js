@@ -1,5 +1,6 @@
-import { somar } from "../src/calculadora.js";
-import { subtrair } from "../src/calculadora.js";
+import { somar , subtrair, multiplicar, dividir } from "../src/calculadora.js";
+
+
 
 describe("Calculadora", () => {
     test("deve somar dois números corretamente", () => {
@@ -28,5 +29,37 @@ describe("Calculadora", () => {
         expect(resultado).toBe(5);
     });
 
-});
+        test ("deve multiplicar dois números corretamente", () => {
+            // Arrange
+            const a = 4;
+            const b = 5;
+
+            // Act
+            const resultado = multiplicar(a, b);
+
+            // Assert
+            expect(resultado).toBe(20);
+        });
+
+            test ("deve dividir dois números corretamente", () => {
+                // Arrange
+                const a = 20;
+                const b = 4;
+
+                // Act
+                const resultado = dividir(a, b);
+
+                // Assert
+                expect(resultado).toBe(5);
+            });
+
+        test ("deve lancar erro ao dividir por zero", () => {
+            // Arrange
+            const a = 20;
+            const b = 0;
+
+            // Act & Assert
+          expect (() => dividir(10, 0)).toThrow("Divisão por zero não é permitida.");
+        });
+    });
 
